@@ -6,6 +6,7 @@ ruby '2.6.3'
 gem 'rails', '~> 5.2.3'
 
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootstrap-sass'
 gem 'jbuilder', '~> 2.5'
 gem 'puma', '~> 3.11'
 gem 'rubocop'
