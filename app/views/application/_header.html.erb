@@ -1,30 +1,34 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
-    <a class="navbar-brand" href="#">Snippetips</a>
+    <a class="navbar-brand" href="/">Snippetips</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#"><%= fa_icon 'bell' %> 通知 <span class="sr-only">(current)</span></a>
-        </li>
-      </ul>
+      <% if logged_in? %>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#"><%= fa_icon 'bell' %> 通知 <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
 
-      <ul class="navbar-nav">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "https://www.gravatar.com/avatar/#{Digest::MD5.hexdigest('ogihara.ryo.b@gmail.com')}" %>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">プロフィール</a>
-            <a class="dropdown-item" href="#">設定</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">@OgiharaRyo からログアウト</a>
-          </div>
-        </li>
-      </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= image_tag current_user.image_url %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">プロフィール</a>
+              <a class="dropdown-item" href="#">設定</a>
+              <div class="dropdown-divider"></div>
+              <%= link_to "@#{current_user.nickname} からログアウト", logout_path, method: :delete, class: 'dropdown-item' %>
+            </div>
+          </li>
+        </ul>
+      <% else %>
+        <ul class="navbar-nav mr-auto"></ul>
+      <% end %>
 
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="キーワード検索" aria-label="Search">
