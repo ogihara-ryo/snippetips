@@ -10,6 +10,74 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require font-awesome
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap";
+
+.navbar {
+  margin-bottom: 24px;
+
+  img {
+    max-height: 30px;
+    width: auto;
+    vertical-align: middle;
+  }
+}
+
+.card {
+  img {
+    height: auto;
+    width: auto;
+  }
+
+  li {
+    float: left;
+    width: 33%;
+
+    dt {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+#tips {
+  list-style: none;
+}
+
+pre {
+  padding: 16px;
+  overflow-x: auto;
+  word-break: normal;
+  background: #f0f0f0;
+}
+
+.list-group-item {
+  .user {
+    margin-bottom: 24px;
+  }
+
+  img {
+    height: 40px;
+    width: auto;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  ul, ol {
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+}

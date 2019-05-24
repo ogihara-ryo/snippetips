@@ -1,0 +1,36 @@
+<ul id="tips" class="list-group">
+  <% 10.times do %>
+    <li class="list-group-item">
+      <div class="user">
+        <a href="#">
+          <%= image_tag "https://www.gravatar.com/avatar/#{Digest::MD5.hexdigest('ogihara.ryo.b@gmail.com')}" %>
+          <strong>Ogihara Ryo <span>@OgiharaRyo</span></strong>
+        </a>
+
+        <small class="timestamp text-muted"><%= time_ago_in_words('2020/01/01 00:00:00') %></small>
+      </div>
+
+<%
+  html = <<'EOS'
+# 見出し1
+## 見出し2
+### 見出し3
+
+* リスト1
+* リスト2
+
+[参考](https://example.com)
+
+```ruby
+def foo
+  puts 'hello world!'
+end
+```
+猫を見つけた
+EOS
+%>
+
+      <%== markdown_to_html(html) %>
+    </li>
+  <% end %>
+</ul>
