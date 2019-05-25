@@ -23,8 +23,8 @@ gem 'coderay'
 gem 'redcarpet'
 
 group :development, :test do
-  gem 'pry-rails'
   gem 'pry-byebug'
+  gem 'pry-rails'
 end
 
 group :development do
